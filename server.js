@@ -10,6 +10,11 @@ app.get('/', (req, res) => {
   res.render('home', data)
 })
 
+app.get('/profile', (req, res) => {
+  var data = { templit: 'profile', title: 'PROFILE', friends: ['zoe', 'ashley', 'ben'] }
+  res.render('profile', data)
+})
+
 app.listen(3000, () => {
   console.log('templit rendering on port 3000')
 })

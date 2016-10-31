@@ -1,0 +1,24 @@
+{
+  "name": "templit",
+  "version": "1.0.0",
+  "description": "skinny server-side rendering engine powered by template literal strings",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/josephquested/templit.git"
+  },
+  "keywords": [
+    "serverside",
+    "template",
+    "rendering"
+  ],
+  "author": "josephquested",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josephquested/templit/issues"
+  },
+  "homepage": "https://github.com/josephquested/templit#readme"
+}

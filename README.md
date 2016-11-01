@@ -19,7 +19,7 @@ getting a new templit project up and running is extremely easy. follow the instr
  app.engine('js', templit)
  app.set('view engine', 'js')
 
- // the path to your 'views' directory
+ // important: the path to your 'views' directory
  app.set('views', `${__dirname}/views`)
 
  app.get('/', (req, res) => {

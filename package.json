@@ -21,9 +21,5 @@
   "bugs": {
     "url": "https://github.com/josephquested/templit/issues"
   },
-  "homepage": "https://github.com/josephquested/templit#readme",
-  "devDependencies": {
-    "express": "^4.14.0",
-    "nodemon": "^1.11.0"
-  }
+  "homepage": "https://github.com/josephquested/templit#readme"
 }

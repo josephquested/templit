@@ -1,33 +1,68 @@
-# ${ TEMPLIT }
-## a simple, literal templating engine for express.js
----
+# TEMPLIT
 
-### ${ quick start }
+> a modern server-side rendering engine powered by template literal strings and express.js
 
-#### starting a templit project from scratch:
-getting a new templit project up and running is extremely easy. follow the instructions below, or clone down the example project from [josephquested/templit-example](http://github.com/josephquested/templi-example) and work from there.
+The NPM community features some very powerful tempting engines. Unfortunately, most of them were created prior to the release of ECMAScript 6, and are not utilizing the best that JavaScript now has to offer.
 
-#### configuring an existing repo for templit:
+Templit provides the same functionality as the templating modules you know and love, without any of the library specific syntax you know and hate.
 
-1. save the templit library into your project via npm: `npm install templit --save`
+**All templit documents are `.js` files, and require no library specific syntax.**
 
-1. you need to plug in templit as the rendering engine for your express app. the minimal server code looks like this:
- ```javascript
- var app = require('express')()
- var templit = require('templit')
+## Express Setup
 
- app.engine('js', templit)
- app.set('view engine', 'js')
+render engine setup:
 
- // important: the path to your 'views' directory
- app.set('views', `${__dirname}/views`)
+```js
+// app.js //
 
- app.get('/', (req, res) => {
-   res.render('home', { tite: 'templit template' })
- })
+var app = require('express')()
+var templit = require('templit')
 
- app.listen(3000, () => {
-   console.log('templit rendering on port 3000')
- })
+app.engine('js', templit)
+app.set('view engine', 'js')
+
+// important: the path to your 'views' directory
+app.set('views', `${__dirname}/views`)
+
+app.get('/', (req, res) => {
+  res.render('home', { tite: 'templit template' })
+})
+
+app.listen(3000, () => {
+  console.log('templit rendering on port 3000')
+})
 ```
-1. aishd
+
+
+## File Tree
+```
+.
+├── app.js
+|
+├── views
+|   |
+|   ├── home.js
+|   |
+|   _includes
+|   ├── footer.html
+|   └── header.html
+```
+
+With [npm](https://npmjs.org/) installed, run
+
+```
+$ npm install templit
+```
+
+## Acknowledgments
+
+templit was inspired by..
+
+## See Also
+
+- [`noffle/common-readme`](https://github.com/noffle/common-readme)
+- ...
+
+## License
+
+ISC

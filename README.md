@@ -8,7 +8,7 @@ Templit provides the same functionality as the templating modules you know and l
 
 **All templit documents are `.js` files, and require no library specific syntax.**
 
-## Express Setup
+## Quick Setup
 
 render engine setup:
 
@@ -37,15 +37,17 @@ app.listen(3000, () => {
 ## File Tree
 ```
 .
-├── app.js
+├─ app.js
+|
+├─ package.json
 |
 ├── views
 |   |
-|   ├── home.js
+|   ├─ home.js
 |   |
-|   _includes
-|   ├── footer.html
-|   └── header.html
+|   templits
+|      ├── footer.html
+|      └── header.html
 ```
 
 With [npm](https://npmjs.org/) installed, run

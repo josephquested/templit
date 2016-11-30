@@ -8,9 +8,21 @@ Templit provides the same functionality as the templating modules you know and l
 
 **All templit documents are `.js` files, and require no library specific syntax.**
 
-## Quick Setup
+## SETUP
+### *quick* setup using the templit generator
+If you're starting a new Templit project from scratch, consider using the **slush-templit** generator. It scaffolds out the basic structure of an express/templit app for you.
 
-render engine setup:
+### manual setup
+It's also easy to set up a templit project yourself, a little something like this:
+
+1. `mkdir templit-app`
+1. `cd templit-app`
+1. `npm init`
+1. `npm install express templit --save`
+1. `touch app.js`
+
+
+**inside app.js:**
 
 ```js
 // app.js //
@@ -25,16 +37,23 @@ app.set('view engine', 'js')
 app.set('views', `${__dirname}/views`)
 
 app.get('/', (req, res) => {
-  res.render('home', { tite: 'templit template' })
+  res.render('home', { tite: 'templit app' })
 })
 
 app.listen(3000, () => {
-  console.log('templit rendering on port 3000')
+  console.log('templit app rendering on port 3000')
 })
 ```
 
+Templit (like most rendering engines) requires a fairly specific file tree -- pictured below. The following commands will build out that tree for you. They should be executed from the top level directory of your project:
 
-## File Tree
+1. `mkdir views`
+1. `mkdir views/templits`
+1. `touch views/home.js`
+1. `touch views/templits/index.js`
+
+
+### File Tree
 ```
 .
 ├─ app.js
@@ -46,15 +65,36 @@ app.listen(3000, () => {
 |   ├─ home.js
 |   |
 |   templits
-|      ├── footer.html
-|      └── header.html
+|      |
+|      ├── index.js
+|
 ```
 
-With [npm](https://npmjs.org/) installed, run
+### views and templits
+There are two different kinds of files we're dealing with here: Templits, found in the `views/templits` directory, are the HTML shells _into which_ `views` are rendered. In other templating frameworks these are commonly called _"layouts"_.
 
+Update `templits/index.js` with the following code
 ```
-$ npm install templit
+// templits/index.js
+
+module.exports = (body) => {
+  return `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>templit app</title>
+      </head>
+      <body>
+        ${body}
+      </body>
+    </html>
+  `
+}
 ```
+This HTML will be the default templit for your app. The view that you wish to render (ie: `views/home.js`) will be passed as the `(body)` argument to this function, and then rendered inside the `<body>${body}</body>` element.
+
+Now pdate `templits/index.js` with the following code
+
 
 ## Acknowledgments
 

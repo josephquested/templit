@@ -13,7 +13,7 @@ Templit provides the same functionality as the templating modules you know and l
 If you're starting a new Templit project from scratch, consider using the **slush-templit** generator. It scaffolds out the basic structure of an express/templit app for you.
 
 ### manual setup
-It's also easy to set up a templit project yourself, a little something like this:
+It's also easy to set up a templit project yourself, these commands will get you started:
 
 1. `mkdir templit-app`
 1. `cd templit-app`
@@ -71,11 +71,11 @@ Templit (like most rendering engines) requires a fairly specific file tree -- pi
 ```
 
 ### views and templits
-There are two different kinds of files we're dealing with here: Templits, found in the `views/templits` directory, are the HTML shells _into which_ `views` are rendered. In other templating frameworks these are commonly called _"layouts"_.
+There are two different kinds of files we're dealing with here: **Templits** and **Views**. `templits`, found in the `views/templits` directory, are the HTML shells _into which_ `views` are rendered. In other templating frameworks these are commonly called _"layouts"_.
 
-Update `templits/index.js` with the following code
-```
-// templits/index.js
+Update `views/templits/index.js` with the following code:
+```js
+// views/templits/index.js
 
 module.exports = (body) => {
   return `
@@ -93,8 +93,22 @@ module.exports = (body) => {
 ```
 This HTML will be the default templit for your app. The view that you wish to render (ie: `views/home.js`) will be passed as the `(body)` argument to this function, and then rendered inside the `<body>${body}</body>` element.
 
-Now pdate `templits/index.js` with the following code
+Now update `views/index.js` with the following code:
+```js
+// views/index.js
 
+function render (data) {
+  return `
+    <h1>templit app</h1>
+  `
+}
+
+module.exports = render
+```
+
+Woohoo! Your templit app is now ready to go. Run `node app.js` and visit `localhost:3000` in your browser.
+
+###
 
 ## Acknowledgments
 

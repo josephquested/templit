@@ -108,11 +108,13 @@ module.exports = render
 
 Woohoo! Your templit app is now ready to go. Run `node app.js` and visit `localhost:3000` in your browser.
 
-###
+## user guide
+### understanding res.render()
+res.render()
 
-## Acknowledgments
+## acknowledgments
 
-templit was inspired by..
+templit was inspired by an aversion to *{{{this}}}*.
 
 ## See Also
 

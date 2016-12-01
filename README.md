@@ -137,7 +137,7 @@ app.get('/login', (req, res) => {
 
 
 
-## acknowledgments
+## ------- acknowledgments -------
 
 templit was inspired by an aversion to *`{{{this}}}`* and `h('p', 'this')`
 
@@ -153,3 +153,5 @@ templit was inspired by an aversion to *`{{{this}}}`* and `h('p', 'this')`
 ## License
 
 ISC
+
+_xoxo joseph quested_

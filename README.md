@@ -50,7 +50,7 @@ Templit (like most rendering engines) requires a fairly specific file tree -- pi
 1. `mkdir views`
 1. `mkdir views/templits`
 1. `touch views/home.js`
-1. `touch views/templits/index.js`
+1. `touch views/templits/default.js`
 
 
 ### File Tree
@@ -66,16 +66,16 @@ Templit (like most rendering engines) requires a fairly specific file tree -- pi
 |   |
 |   templits
 |      |
-|      ├── index.js
+|      ├── default.js
 |
 ```
 
 ### views and templits
 There are two different kinds of files we're dealing with here: **Templits** and **Views**. `templits`, found in the `views/templits` directory, are the HTML shells _into which_ `views` are rendered. In other templating frameworks these are commonly called _"layouts"_.
 
-Update `views/templits/index.js` with the following code:
+**inside views/templits/default.js:**
 ```js
-// views/templits/index.js
+// views/templits/default.js
 
 module.exports = (body) => {
   return `
@@ -93,7 +93,7 @@ module.exports = (body) => {
 ```
 This HTML will be the default templit for your app. The view that you wish to render (ie: `views/home.js`) will be passed as the `(body)` argument to this function, and then rendered inside the `<body>${body}</body>` element.
 
-Now update `views/index.js` with the following code:
+**inside views/home.js:**
 ```js
 // views/index.js
 

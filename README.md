@@ -10,7 +10,7 @@ Templit provides the same functionality as the templating modules you know and l
 
 ## ------- SETUP -------
 ### *quick* setup using the templit generator
-If you're starting a new Templit project from scratch, consider using the **slush-templit** generator. It scaffolds out the basic structure of an express/templit app for you.
+If you're starting a new Templit project from scratch, consider using [the templit generator](https://www.npmjs.com/package/slush-templit). It scaffolds out the basic structure of an express/templit app for you.
 
 ## -----------------------
 

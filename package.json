@@ -3,18 +3,16 @@
   "version": "1.0.1",
   "description": "skinny server-side rendering engine powered by template literal strings",
   "main": "index.js",
-  "scripts": {
-    "start": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/josephquested/templit.git"
   },
   "keywords": [
+    "templit",
     "serverside",
+    "rendering",
     "template",
-    "rendering"
+    "literal"
   ],
   "author": "josephquested",
   "license": "ISC",

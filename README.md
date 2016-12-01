@@ -1,6 +1,6 @@
 # TEMPLIT
 
-> a modern server-side rendering engine powered by template literal strings and express.js
+> a modern server-side rendering engine powered by template literal strings and [express.js](https://www.npmjs.com/package/express)
 
 The NPM community features some very powerful tempting engines. Unfortunately, most of them were created prior to the release of ECMAScript 6, and are not utilizing the best that JavaScript now has to offer.
 
@@ -8,9 +8,11 @@ Templit provides the same functionality as the templating modules you know and l
 
 **All templit documents are `.js` files, and require no library specific syntax.**
 
-## SETUP
+## ------- SETUP -------
 ### *quick* setup using the templit generator
 If you're starting a new Templit project from scratch, consider using the **slush-templit** generator. It scaffolds out the basic structure of an express/templit app for you.
+
+## -----------------------
 
 ### manual setup
 It's also easy to set up a templit project yourself, these commands will get you started:
@@ -37,7 +39,7 @@ app.set('view engine', 'js')
 app.set('views', `${__dirname}/views`)
 
 app.get('/', (req, res) => {
-  res.render('home', { tite: 'templit app' })
+  res.render('home', { title: 'templit app' })
 })
 
 app.listen(3000, () => {
@@ -45,7 +47,7 @@ app.listen(3000, () => {
 })
 ```
 
-Templit (like most rendering engines) requires a fairly specific file tree -- pictured below. The following commands will build out that tree for you. They should be executed from the top level directory of your project:
+Templit (like most rendering engines) requires a fairly **specific file tree** -- *pictured below.* The following commands will build out that tree for you. They should be executed from the top level directory of your project:
 
 1. `mkdir views`
 1. `mkdir views/templits`
@@ -69,6 +71,7 @@ Templit (like most rendering engines) requires a fairly specific file tree -- pi
 |      ├── default.js
 |
 ```
+* note: your templits directory *must* contain a **default.js** file.
 
 ### views and templits
 There are two different kinds of files we're dealing with here: **Templits** and **Views**. `templits`, found in the `views/templits` directory, are the HTML shells _into which_ `views` are rendered. In other templating frameworks these are commonly called _"layouts"_.
@@ -95,31 +98,57 @@ This HTML will be the default templit for your app. The view that you wish to re
 
 **inside views/home.js:**
 ```js
-// views/index.js
+// views/home.js
 
 function render (data) {
   return `
-    <h1>templit app</h1>
+    <h1>${data.title}</h1>
   `
 }
 
 module.exports = render
 ```
 
-Woohoo! Your templit app is now ready to go. Run `node app.js` and visit `localhost:3000` in your browser.
+#### Woohoo!
+ Your templit app is now ready to go. Run `node app.js` and visit `localhost:3000` in your browser.
 
-## user guide
+## ------- user guide -------
 ### understanding res.render()
-res.render()
+```JS
+app.get('/', (req, res) => {
+  res.render('home', { tite: 'templit app' })
+})
+```
+`res.render('view', [data])` is an express function that takes two arguments.
+
+1. A string that represents the view to be loaded, IE: `'home'`. This string points to a file that lives in the *views* folder, IE: `/views/home.js`.
+
+1. An optional object that passes data along to the view being rendered, IE: `{title: "templit app"}`
+
+### passing non-default templits
+What if I don't want to use the default templit? Never fear. Custom templits are stored in the `views/templits` directory, IE: `views/templits/login.js`.
+
+You specify their use in the `res.render()` function, by passing a special `templit: 'string'` key-value pair into the optional second argument. IE:
+```js
+app.get('/login', (req, res) => {
+  res.render('login', { templit: 'login' })
+})
+```
+
+
 
 ## acknowledgments
 
-templit was inspired by an aversion to *{{{this}}}*.
+templit was inspired by an aversion to *`{{{this}}}`* and `h('p', 'this')`
 
-## See Also
+## see also
 
-- [`noffle/common-readme`](https://github.com/noffle/common-readme)
-- ...
+- [`further reading on template literals`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Template_literals)
+- [`templit example app`](https://example.com)
+- [`templit generator`](https://example.com)
+- [`express.js npm`](https://www.npmjs.com/package/express)
+- [`handlebars npm`](https://www.npmjs.com/package/handlebars)
+- [`hyperscript npm`](https://www.npmjs.com/package/hyperscript)
 
 ## License
 

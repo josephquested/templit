@@ -9,7 +9,7 @@ Templit provides the same functionality as the templating modules you know and l
 **All templit documents are `.js` files, and require no library specific syntax.**
 
 ## ------- SETUP -------
-### *quick* setup using the templit generator
+### [*quick* setup using the templit generator](https://www.npmjs.com/package/slush-templit)
 If you're starting a new Templit project from scratch, consider using [the templit generator](https://www.npmjs.com/package/slush-templit). It scaffolds out the basic structure of an express/templit app for you.
 
 ## -----------------------

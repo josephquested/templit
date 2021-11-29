@@ -100,13 +100,11 @@ This HTML will be the default templit for your app. The view that you wish to re
 ```js
 // views/home.js
 
-function render (data) {
+module.exports = (data) => {
   return `
     <h1>${data.title}</h1>
   `
 }
-
-module.exports = render
 ```
 
 #### Woohoo!
